@@ -8,28 +8,40 @@
 
 ?>
 
-<footer class="text-center mt-20">
-	<!-- Footer links (start) -->
-	<div class="text-3xl">
-		<a href="#">Terms of Use</a> .
-		<a href="#">Privacy Policy</a>
-	</div>
-	<!-- Footer links (end) -->
+<footer class="text-center mt-20 font-noto-regular">
 
-	<!-- Address (start) -->
-	<p class="text-gray-500">
-		10, Anson Road, #34-10, International Plaza, Singapore 079903
-	</p>
-	<!-- Address (end) -->
 
-	<!-- Copyright notice (start) -->
-	<p class="text-gray-500">
-		© HIMEDI SEA PTE. LTD.
-	</p>
-	<!-- Copyright notice (end) -->
+<!-- <div class="text-2xl mb-5  ">
+<a href="https://himedi.com/en?terms=true" class="text-gray-600 font-bold "style="font-size:14px;">Terms of Use</a> .
+<a href="https://himedi.com/en?privacy=true" class="text-gray-600 font-bold" style="font-size:14px;">Privacy Policy</a>
+</div> -->
+
+
+<p class="text-gray-500 px-20 " style="font-size:13px">
+	22, Seocho-daero 78-gil, Seocho-gu, Seoul, Republic of Korea
+</p>
+
+
+<p class="text-gray-500 mt-8 mb-16">
+&copy; HIMEDI Korea Co.,LTD.
+</p>
+
 </footer>
 
 <?php wp_footer(); ?>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 50) {
+        $(".header-container").addClass("fixed-top");
+    } else {
+        $(".header-container").removeClass("fixed-top");
+    }
+});
+		</script>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -64,8 +76,8 @@
 				chart.hide();
 
 				trig.on('click', function() {
-					jQuery(this).addClass('active border-2 shadow-md').siblings().removeClass('active border-2 shadow-md');
-					jQuery(this).css('text-shadow', '0px 2px 5px #777').siblings().css('text-shadow', '0px 0px 0px #00000000');
+					jQuery(this).addClass('active').siblings().removeClass('active');
+					jQuery(this).addClass('border-2').siblings().removeClass('border-2');
 					if (trig.hasClass('active')) {
 						chart.addClass('active').siblings().removeClass('active');
 					}
@@ -78,6 +90,7 @@
 		}
 	);
 </script>
+
 </body>
 
 </html>
