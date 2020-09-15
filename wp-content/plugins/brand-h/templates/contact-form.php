@@ -1,12 +1,24 @@
-<!-- <a href="/wp-admin/edit.php?post_type=testimonial"><?php _e('Goto Result through Admin page', 'brand-h-form'); ?> </a> -->
-<form class="w-full mt-20 sm:text-2xl text-lg sm:p-16" id="brandh-form-form" action="#" method="post" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+<form class="w-full mt-20 px-5 sm:text-2xl text-lg sm:p-16" id="brandh-form-form" action="#" method="post" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
 
 	<!-- Name (start) -->
 	<div class="field-container flex items-center mb-10">
 		<div class="sm:w-1/3 w-2/5">
 			<label for="name">
-				<img class="inline pr-2" src="<?php bloginfo('template_url') ?>/img/check.svg" alt="check icon">
-				Full Name <span class="text-red-500">*</span>
+				<img class="inline pr-2" src="<?php bloginfo('template_url') ?>/img/check.svg" alt="check icon"> 
+		<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Full Name';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'Имя';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'Нэр';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'الاسم';
+			}
+		?>	<span class="text-red-500">*</span>
 			</label>
 		</div>
 		<div class="sm:w-2/3 w-3/5">
@@ -21,12 +33,25 @@
 		<div class="sm:w-1/3 w-2/5">
 			<label for="phone">
 				<img class="inline pr-2" src="<?php bloginfo('template_url') ?>/img/check.svg" alt="check icon">
-				Phone <span class="text-red-500">*</span>
+						<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Phone';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'номер телефона';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'Нэр';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'الاسم';
+			}
+		?> <span class="text-red-500">*</span>
 			</label>
 		</div>
 		<div class="sm:w-2/3 w-3/5 flex justify-between">
 			<!-- Phone codes (start) -->
-			<select class="mr-5 w-2/5 border border-gray-200 text-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" name="phoneCode">
+			<select class="mr-5 w-2/5 border border-gray-200 text-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" name="phone_code">
 
 				<option selected>Nation</option>
 				<option data-countryCode="KR" value="82">S. Korea (+82)</option>
@@ -246,6 +271,7 @@
 				<option data-countryCode="ZM" value="260">Zambia (+260)</option>
 				<option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
 			</select>
+			<small class="field-msg error" data-error="invalidPhoneCode">The Phone Code is not valid</small>
 			<!-- Phone codes (end) -->
 			<input type="number" class="field-input w-3/5 appearance-none border-2 border-gray-200 rounded-lg py-2 px-4 text-gray-700 focus:outline-none focus:bg-white focus:border-blue-500" placeholder="Your Phone Number" id="phone" name="phone" min="1">
 			<small class="field-msg error" data-error="invalidPhone">The Phone is not valid</small>
@@ -258,7 +284,20 @@
 		<div class="sm:w-1/3 w-2/5">
 			<label for="email">
 				<img class="inline pr-2" src="<?php bloginfo('template_url') ?>/img/check.svg" alt="check icon">
-				Email <span class="text-red-500">*</span>
+					<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Email';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'электронная почта';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'Цахим хаяг';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'الاسم';
+			}
+		?> <span class="text-red-500">*</span>
 			</label>
 		</div>
 		<div class="sm:w-2/3 w-3/5">
@@ -273,7 +312,20 @@
 		<div class="sm:w-1/3 w-2/5">
 			<label for="care">
 				<img class="inline pr-2" src="<?php bloginfo('template_url') ?>/img/check.svg" alt="check icon">
-				Disease <span class="text-red-500">*</span>
+									<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Disease';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'болезнь';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'өвчний онош';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'الاسم';
+			}
+		?> <span class="text-red-500">*</span>
 			</label>
 		</div>
 		<div class="sm:w-2/3 w-3/5">
@@ -288,38 +340,90 @@
 		<div class="sm:w-1/3 w-3/5">
 			<label for="mediReport">
 				<img class="inline pr-2" src="<?php bloginfo('template_url') ?>/img/check.svg" alt="check icon">
-				Medical Report <span class="text-red-500">*</span>
+													<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Medical Report';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'медицинское заключение';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'эмнэлэгийн түүх';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'الاسم';
+			}
+		?> <span class="text-red-500">*</span>
 			</label>
 		</div>
-		<div class="sm:w-2/3 w-full flex justify-between">
+		<div class="sm:w-2/3 w-full flex justify-between lg:px-12">
 			<label class="inline font-bold px-5">
-				<input class="mr-2" name="mediReportrt" type="radio" required>
+				<input class="mr-2" name="medical_report" type="radio" required value="yes">
 				<span>
-					Applicable
+		<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Applicable';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'применимо';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'тийм';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'الاسم';
+			}
+		?>
 				</span>
 			</label>
 			<label class="inline font-bold">
-				<input class="mr-2" name="mediReportrt" type="radio">
+				<input class="mr-2" name="medical_report" type="radio" value="no">
 				<span>
-					Not Applicable
+		<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Not Applicable';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'не применимо';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'үгүй';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'الاسم';
+			}
+		?>
 				</span>
 			</label>
 		</div>
-		<small class="field-msg error" data-error="invalidMessage2">Please choose one option</small>
+		<small class="field-msg error" data-error="invalidMedicalReport">Please choose one option</small>
 	</div>
 	<!-- Medical Report (end) -->
 
 	<!-- Question 1 (start) -->
 	<div class="field-container mb-10">
 		<div class="w-full">
-			<label class="block font-bold mb-1 mb-0 pr-4" for="message2">
+			<label class="block font-bold mb-1 mb-0 pr-4" for="message">
 				<img class="inline pr-2" src="<?php bloginfo('template_url') ?>/img/check.svg" alt="">
-				Major questions to doctors: <span class="text-red-500">*</span>
+						<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Major questions to doctors';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'Основные вопросы к врачам';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'Эмч нарт тавих гол асуултууд';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'الأسئلة الرئيسية للأطباء';
+			}
+		?> <span class="text-red-500">*</span>
 			</label>
 		</div>
 		<div class="w-full p-10">
-			<textarea name="message2" id="message2" class="field-input border border-gray-500 w-full" placeholder="Your Message2" rows="10" required></textarea>
-			<small class="field-msg error" data-error="invalidMessage2">A Message2 is Required</small>
+			<textarea name="message1" id="message1" class="field-input border border-gray-500 w-full px-4" placeholder="Your message here" rows="3" required></textarea>
+			<small class="field-msg error" data-error="invalidMessage1">A Message is Required</small>
 		</div>
 	</div>
 	<!-- Question 1 (end) -->
@@ -329,31 +433,46 @@
 		<div class="w-full">
 			<label class="block font-bold mb-1 mb-0 pr-4" for="message2">
 				<img class="inline pr-2" src="<?php bloginfo('template_url') ?>/img/check.svg" alt="">
-				Is there any aspect regarding the patient that Doctors need to take note of? <span class="text-red-500">*</span>
+		<?php 
+			if(ICL_LANGUAGE_CODE == 'en'){ 
+				echo 'Is there any aspect regarding the patient that <span class="pl-10 lg:pl-0">Doctors need to take note of? </span>';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ru') { 
+				echo 'Есть ли какие-либо аспекты у пациента, на которые врачи должны обратить внимание?';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'mn') { 
+				echo 'Himedi болон эмч нарын зүгээс өвчтөний талаар юуг анхаарах ёстой вэ?';
+			} 
+			elseif(ICL_LANGUAGE_CODE == 'ar') { 
+				echo 'هل هناك أي جانب يتعلق بالمريض يحتاج الأطباء إلى ملاحظته؟';
+			}
+		?><span class="text-red-500">*</span>
 			</label>
 		</div>
 		<div class="w-full p-10">
-			<textarea name="message2" id="message2" class="field-input border border-gray-500 w-full" placeholder="Your Message2" rows="10" required></textarea>
-			<small class="field-msg error" data-error="invalidMessage">A Message2 is Required</small>
+			<textarea name="message2" id="message2" class="field-input border border-gray-500 w-full px-4" placeholder="Your message here" rows="3" required></textarea>
+			<small class="field-msg error" data-error="invalidMessage2">A Message2 is Required</small>
 		</div>
 	</div>
 	<!-- Question 2 (end) -->
 
 	<!-- Consent (start) -->
-	<div class="text-right p-10">
-		<span>Consent to collect personal data</span>
-		<input type="checkbox">
-	</div>
+	<!-- <div class="text-right p-10 flex items-center justify-end">
+		<span class="pr-2">Consent to collect personal data</span>
+		<input type="checkbox" class="">
+	</div> -->
 	<!-- Consent (end) -->
 
 	<!-- Submit (start) -->
 	<div class="field-container flex items-center text-center">
-		<div class="w-full">
+		<div class="w-full pb-20">
 			<button type="stubmit" class="applyBtn bg-brand p-5 text-white font-normal w-1/2 mx-auto mt-10" style="border-radius:10px; font-size:18px">Apply</button>
 		</div>
-		<small class="field-msg js-form-submission">Submission in process, please wait&hellip;</small>
-		<small class="field-msg success js-form-success">Successfully submitted, <a href="/wp-admin/edit.php?post_type=testimonial"> Goto Result through Admin page</a></small>
-		<small class="field-msg error js-form-error">There was a problem with the Contact Form, please try again!</small>
+		<div class="flex justify-center items-center">
+			<small class="field-msg js-form-submission">Submission in process, please wait&hellip;</small>
+			<small class="field-msg success js-form-success">Successfully submitted.</small>
+			<small class="field-msg error js-form-error">There was a problem with the Contact Form, please try again!</small>
+		</div>
 	</div>
 
 	<input type="hidden" name="action" value="submit_testimonial">
